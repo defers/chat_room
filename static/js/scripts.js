@@ -16,11 +16,15 @@ function initParams() {
 
 function handleMessagesFromWS(ev) {
     const data = JSON.parse(ev.data)
-    console.log(data.avatar_img)
+
+    avatar_img = '<div class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60"></div>'
+    if (data.avatar_img) {
+        avatar_img = '<img src=' + data.avatar_img + '/ alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">'
+    }
 
     const msgElement =
         '<li class="d-flex justify-content-between mb-4">' +
-        '<img src=' + data.avatar_img + ' alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">' +
+        avatar_img +
         '<div class="card">' +
         '<div class="card-header d-flex justify-content-between p-3">' +
         '<p class="fw-bold mb-0 me-3">' + data.username + '</p>' +

@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="025c59f0-4ffa-4645-94c0-c85a97802cb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/backends.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat_room/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_room/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/service_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/service_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatroom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chatroom/chat room.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chatroom/chat room.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chatroom/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chatroom/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -214,16 +226,6 @@
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d95dce5d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@776b6ad8" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d95dce5d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@ae22ccf" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f97278df" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
@@ -250,7 +252,7 @@
       <workItem from="1669308836539" duration="14250000" />
       <workItem from="1669384674284" duration="238000" />
       <workItem from="1669384972354" duration="15546000" />
-      <workItem from="1669572764755" duration="80609000" />
+      <workItem from="1669572764755" duration="89462000" />
     </task>
     <servers />
   </component>
@@ -325,32 +327,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>46</line>
+          <line>51</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>41</line>
+          <line>46</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>43</line>
+          <line>48</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>54</line>
+          <line>62</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>71</line>
+          <line>78</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chatroom/views.py</url>
-          <line>69</line>
+          <line>77</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -365,13 +367,53 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/users/views.py</url>
-          <line>34</line>
+          <line>37</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/users/views.py</url>
-          <line>36</line>
+          <line>39</line>
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/Python38/Lib/site-packages/django/contrib/auth/views.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/Python38/Lib/site-packages/django/contrib/auth/views.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/Python38/Lib/site-packages/django/contrib/auth/views.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chatroom/consumers.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chatroom/service_async.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chatroom/views.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chatroom/views.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chatroom/views.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -386,6 +428,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chat_room$consumers.coverage" NAME="consumers Coverage Results" MODIFIED="1669720773909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chatroom" />
     <SUITE FILE_PATH="coverage/chat_room$models.coverage" NAME="models Coverage Results" MODIFIED="1669659857662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chat_room$daphne_server.coverage" NAME="daphne_server Coverage Results" MODIFIED="1669834402088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chat_room" />
+    <SUITE FILE_PATH="coverage/chat_room$daphne_server.coverage" NAME="daphne_server Coverage Results" MODIFIED="1669844662495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chat_room" />
   </component>
 </project>

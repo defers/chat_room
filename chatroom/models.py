@@ -1,6 +1,8 @@
 from channels.db import database_sync_to_async
 from django.db import models
 # from django.contrib.auth import get_user_model
+from django.http import HttpResponseForbidden
+
 from chat_room.utils import get_class_representation
 import users.models as user_models
 

@@ -1,14 +1,17 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import generic
 from django.views.generic.base import View
+from django.contrib.auth import views as auth_views
 
-from users.forms import RegisterForm
+from chatroom.views import AuthenticatedMixin
+from users.forms import RegisterForm, LoginForm
 from users.models import UserProfile
 
 
-class Profile(generic.UpdateView):
+class Profile(AuthenticatedMixin, generic.UpdateView):
     model = UserProfile
     template_name = "chatroom/profile_edit.html"
     fields = ["name", "avatar"]
@@ -48,3 +51,9 @@ class Register(View):
         }
 
         return render(request, self.template, context)
+
+
+class Login(auth_views.LoginView):
+    form_class = LoginForm
+    template_name = 'users/login.html'
+

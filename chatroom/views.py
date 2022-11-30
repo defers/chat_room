@@ -1,28 +1,22 @@
-import json
 
 from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.views import generic
 from django.views.generic import TemplateView
 from django.views.generic.base import View
-
 from chatroom import service
 from chatroom.forms import CreateChatroomForm
 from chatroom.models import ChatRoom
-from users.models import UserProfile
 
 
-def index_page(request):
-    return render(request, "chatroom/index.html")
+class AuthenticatedMixin(object):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('users:login')
+        return super(AuthenticatedMixin, self).dispatch(request, *args, **kwargs)
 
 
-def chat_page(request):
-    return render(request, "chatroom/chat.html")
-
-
-
-class ChatList(TemplateView):
+class ChatList(AuthenticatedMixin, TemplateView):
 
     template_name = "chatroom/chat.html"
 
@@ -33,7 +27,7 @@ class ChatList(TemplateView):
         return context
 
 
-class ChatRoomView(TemplateView):
+class ChatRoomView(AuthenticatedMixin, TemplateView):
 
     template_name = "chatroom/chat room.html"
 
@@ -41,7 +35,7 @@ class ChatRoomView(TemplateView):
     def get_context_data(self, **kwargs):
         chatroom = ChatRoom.objects.get(id=kwargs['id'])
         messages = chatroom.message_set.all()
-        active_users = chatroom.users.filter(Q(username=self.request.user.username))
+        active_users = chatroom.users.filter(~Q(username=self.request.user.username))
 
         context = super().get_context_data(**kwargs)
         context['chatroom'] = chatroom
@@ -52,12 +46,15 @@ class ChatRoomView(TemplateView):
 
 @transaction.atomic
 def delete_chat_room(request, id):
+    if not request.user.is_authenticated:
+        return redirect('users:login')
+
     chatroom = service.find_chatroom_by_id(id)
     service.set_chat_room_delete(chatroom)
     return redirect("chatroom:chat")
 
 
-class CreateChatRoomView(View):
+class CreateChatRoomView(AuthenticatedMixin, View):
     def get(self, request):
         template = "chatroom/create_chatroom.html"
         form = CreateChatroomForm()
@@ -68,7 +65,6 @@ class CreateChatRoomView(View):
 
     def post(self, request):
         chatroom_f = CreateChatroomForm(request.POST)
-        # form.cleaned_data["author"] = request.user.userprofile
         if chatroom_f.is_valid():
             chatroom = chatroom_f.save(commit=False)
             chatroom.author = request.user.userprofile

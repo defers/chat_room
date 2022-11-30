@@ -1,6 +1,3 @@
-# import os
-
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat_room.settings')
 import django
 django.setup()
 
@@ -77,12 +74,12 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
 
     async def chatbox_users(self, event):
         user_profile = event["user_profile"]
-
+        avatar_img = user_profile.avatar.url if user_profile.avatar else ""
         await self.send(
             text_data=json.dumps(
                 {
                     "username": user_profile.name,
-                    "avatar_img": user_profile.avatar.url,
+                    "avatar_img": avatar_img,
                 }
             )
         )

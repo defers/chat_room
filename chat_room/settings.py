@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'chatroom.apps.ChatroomConfig',
 
-
 ]
 
 MIDDLEWARE = [
@@ -96,16 +95,16 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         # SQL lite
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
 
-        # Postgres
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'chat_room',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'admin',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '5432',
+        #Postgres
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'chat_room',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
 
         # MySQL
     }
@@ -131,6 +130,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.UserDB'
+AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
+LOGIN_REDIRECT_URL = "/"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

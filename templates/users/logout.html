@@ -1,0 +1,12 @@
+
+{% extends "base-without-header.html" %}
+{% block content %}
+    <div class="container-md mt-5 p-3 border d-flex flex-column justify-content-center align-items-center">
+        <h2>You have been logged out</h2>
+        <div class="container d-flex justify-content-center">
+            <small class="text-muted">
+                <a href="{% url 'users:login' %}">Log In Again</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
