@@ -2,9 +2,8 @@
 // CHAT ROOM SENDING AND GETTING MESSAGES BY WEB SOCKET
 
 const protocol = "ws"
-//todo ID dinamicly
-const pathUrl = "/ws/chatroom/" + chatroomId
-console.log(pathUrl)
+const pathUrl = "/ws/chatroom/" + (chatroomId?chatroomId:"")
+
 const ws = configWebSocket(protocol, pathUrl)
 
 $(document).ready(initParams)
@@ -31,7 +30,6 @@ function handleMessagesFromWS(ev) {
     $("#message-box").append(msgElement)
 
     scrollToTheBottom()
-
 }
 
 function sendMessage(ev) {

@@ -6,5 +6,6 @@ import users.views as views
 app_name = "users"
 
 urlpatterns = [
-    re_path(r'^profile/(?P<pk>\d+)$', views.Profile.as_view(), name="profile")
+    re_path(r'^profile/(?P<pk>\d+)$', views.Profile.as_view(), name="profile"),
+    re_path(r'^register$', views.Register.as_view(), name="register")
 ]
