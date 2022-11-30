@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-md container-lg p-3 m-2 mx-auto">
+        <form action="{% url "chatroom:chatroom_add" %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Create">
+        </form>
+    </div>
+{% endblock content %}

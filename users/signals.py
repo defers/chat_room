@@ -12,7 +12,7 @@ def create_user_profile(sender, instance, **kwargs):
     user_profile = find_user_profile_by_user(user=instance)
     if user_profile is None:
         create_user_profile_by_user(user=instance)
-        #test
+
 
 
 

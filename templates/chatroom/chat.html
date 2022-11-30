@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-md">
+        <div class="container-md">
+            <a href="{% url "chatroom:chatroom_add" %}" class="btn btn-success mt-3">Create chatroom</a>
+        </div>
+
+        <div class="row row-cols-auto">
+            {% for chatroom in chatrooms %}
+
+                <div class="card m-3 rounded-5">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ chatroom.name }}</h4>
+                        <h6 class="card-title">{{ chatroom.author }}</h6>
+                        <h6 class="card-title">{{ chatroom.created_date }}</h6>
+                        <p class="card-text">{{ chatroom.description }}</p>
+                        <a href="{% url "chatroom:chatroom" chatroom.id %}" class="btn btn-success w-75 m-1">Enter chatroom</a>
+                        <a href="{% url "chatroom:chatroom_delete" chatroom.id %}" class="btn btn-danger w-75 m-1">Delete chatroom</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+
