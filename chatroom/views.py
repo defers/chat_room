@@ -55,6 +55,7 @@ def delete_chat_room(request, id):
 
 
 class CreateChatRoomView(AuthenticatedMixin, View):
+    @transaction.atomic
     def get(self, request):
         template = "chatroom/create_chatroom.html"
         form = CreateChatroomForm()
@@ -63,6 +64,7 @@ class CreateChatRoomView(AuthenticatedMixin, View):
         }
         return render(request, template, context)
 
+    @transaction.atomic
     def post(self, request):
         chatroom_f = CreateChatroomForm(request.POST)
         if chatroom_f.is_valid():

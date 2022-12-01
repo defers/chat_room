@@ -1,16 +1,11 @@
 import django
 django.setup()
 
-from channels.db import database_sync_to_async
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 import chatroom.service_async as chatroom_service
 import users.service as users_service
-from chatroom.models import ChatRoom
 
-@database_sync_to_async
-def getChatRoom(id):
-    return ChatRoom.objects.get(id=id)
 
 class ChatRoomConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -18,7 +13,7 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         self.group_id = "chat_%s" % self.chat_box_id
 
         user_profile = await users_service.get_user_profile_from_user(self.scope["user"])
-        chatroom = await getChatRoom(self.chat_box_id)
+        chatroom = await chatroom_service.find_chatroom_by_id(self.chat_box_id)
         await chatroom.add_user(self.scope["user"])
 
         await self.channel_layer.group_add(self.group_id, self.channel_name)
@@ -51,7 +46,7 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
     async def disconnect(self, code):
         await self.channel_layer.group_discard(self.group_id, self.channel_name)
         self.chat_box_id = self.scope["url_route"]["kwargs"]["id"]
-        chatroom = await getChatRoom(self.chat_box_id)
+        chatroom = await chatroom_service.find_chatroom_by_id(self.chat_box_id)
         await chatroom.remove_user(self.scope["user"])
 
     async def chatbox_message(self, event):

@@ -3,7 +3,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from users.models import UserDB, UserProfile
+from users.models import UserDB
 from users.service import find_user_profile_by_user, create_user_profile_by_user
 
 
